@@ -47,9 +47,13 @@ def get_preprocessed_files():
     if files:
         docs_contents = read_files(files)
         
+        all_contents = []
         while docs_contents:
             doc_name, content = itemgetter('doc', 'content')(docs_contents.popleft())
             processed_content = Process_Text(content)
+            all_contents.append(processed_content.all_contents)
+    
+    return all_contents
             
 
 

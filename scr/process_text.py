@@ -5,14 +5,15 @@ import unidecode
 import re
 
 class Process_Text():
-    def __init__(self, contents:list) -> None:
+    def __init__(self, contents:list):
         original_text = ' '.join([str(text) for text in contents])
         lower = self._lower_case(original_text)
         noise_removed = self._remove_noises(lower)
         without_accents = self._remove_accents(noise_removed)
         tokenized = self._tokenize(without_accents)
-        withou_stop_words = self._stop_words(tokenized)
-        return withou_stop_words
+        without_stop_words = self._stop_words(tokenized)
+        
+        self.all_contents = without_stop_words
 
     def _lower_case(self, text:str):
         '''
