@@ -145,7 +145,7 @@ def _save_csv(df:pd.DataFrame):
     df.to_csv(file_path, sep=';', index=False)
 
 
-def get_metrics_of_text(a_lists):
+def get_metrics_of_text(a_lists, topn):
     '''
     '''
 
@@ -154,7 +154,7 @@ def get_metrics_of_text(a_lists):
     words_table_metrics = _fill_table(a_lists)
 
     # tabela com as palavras top n e seus TF-IDFs
-    topn_words_table = _get_topn_words_tfidf(5, words_table_metrics)
+    topn_words_table = _get_topn_words_tfidf(topn, words_table_metrics)
 
     # dicionário com as top n palavras e suas
     # palavras vizinhas
