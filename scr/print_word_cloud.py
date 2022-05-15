@@ -41,12 +41,13 @@ class PrintWordCloud:
 
         # Atribuindo cores e tamanhos aos nós
         node_color = [ 'orange' if i in words else 'skyblue' for i in G ]
-        # node_size = [ int(tamanho[node]*2000) if node in words else 350 for node in G ]
+        node_size = [ int(tamanho[node]*2000) if node in words else 350 for node in G ]
 
         # Construindo o gráfico:
         nx.draw_kamada_kawai( G, with_labels=True, \
                 width=3, node_color=node_color, \
-                edge_color="gray", style="solid" )
+                edge_color="gray", style="solid",
+                node_size=node_size )
         plt.show()
 
     def _get_topn_words(self, top:int, tf_idf:dict) -> list:
