@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 
 class PrintWordCloud:
-    def __init__(self, qtd_pnts_central:int, tf_idf:dict, tokens_and_words:dict):
+    def __init__(self, tf_idf:dict, tokens_and_words:dict, qtd_pnts_central:int):
         """ Gera o gráfico de palavras
 
         params:
@@ -21,8 +21,8 @@ class PrintWordCloud:
 
         # Obtem os vértices
         edges = [ (i, j[k]) \
-        for i, j in tokens_and_words.items() \
-                if i in palavras_centrais for k in range(len(j)) ]
+            for i, j in tokens_and_words.items() \
+                    if i in palavras_centrais for k in range(len(j)) ]
         
         # Chama a plotagem
         self._plotNx(tokens_and_words, edges, tf_idf)

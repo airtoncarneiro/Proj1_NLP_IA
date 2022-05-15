@@ -92,6 +92,7 @@ def _normalize(x):
 def _get_topn_words_tfidf(topn, df):
     '''
     '''
+
     tmp_df = pd.DataFrame(columns=['WORD', 'TFIDF'])
     for _, row in df.iterrows():
         max_value = None
@@ -106,13 +107,18 @@ def _get_topn_words_tfidf(topn, df):
     
     tmp_df = tmp_df.sort_values(by=['TFIDF'], ascending=False)[:topn]
     tmp_df.reset_index(drop=True, inplace=True)
-    return tmp_df
+
+    tmp_dict = {}
+    for _, row in tmp_df.iterrows():
+        tmp_dict[row['WORD']] = row['TFIDF']
+
+    return tmp_dict
 
 def _find_neighbors_words(words, docs, neighb=2):
     '''
     '''
 
-    a_list = []
+    a_list = {}
     for word in words:
         for doc in docs:
             indices = [i for i, x in enumerate(doc) if x == word]
@@ -127,7 +133,7 @@ def _find_neighbors_words(words, docs, neighb=2):
                 words.remove(word)
                 words = list(words)
             
-            if words: a_list.append({word:words})
+            if words: a_list[word]=words
     
     return a_list
 
@@ -143,9 +149,19 @@ def get_metrics_of_text(a_lists):
     '''
     '''
 
+    # tabela com a lista de todas as palavras
+    # e suas métricas TF, DF, IDF, TFIDF
     words_table_metrics = _fill_table(a_lists)
+
+    # tabela com as palavras top n e seus TF-IDFs
     topn_words_table = _get_topn_words_tfidf(5, words_table_metrics)
-    words_proximities = _find_neighbors_words(topn_words_table['WORD'], a_lists, 2)
+
+    # dicionário com as top n palavras e suas
+    # palavras vizinhas
+    words_proximities = _find_neighbors_words(list(topn_words_table.keys()), a_lists, 2)
+    #words_proximities = _find_neighbors_words(topn_words_table['WORD'], a_lists, 2)
+
+
     _save_csv(words_table_metrics)
 
-    return 1
+    return topn_words_table, words_proximities
