@@ -6,7 +6,7 @@ import metrics
 #print(lista)
 
 lista = [
-    ['gato','comeu','queijo'],
+    ['comeu','gato','queijo'],
     ['gato', 'gato'],
     ['gato']
 ]
