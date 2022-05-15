@@ -131,6 +131,13 @@ def _find_neighbors_words(words, docs, neighb=2):
     
     return a_list
 
+def _save_csv(df:pd.DataFrame):
+    '''
+    '''
+    
+    file_path = './data/processed/all_words_and_metrics.csv'
+    df.to_csv(file_path, sep=';', index=False)
+
 
 def get_metrics_of_text(a_lists):
     '''
@@ -139,5 +146,6 @@ def get_metrics_of_text(a_lists):
     words_table_metrics = _fill_table(a_lists)
     topn_words_table = _get_topn_words_tfidf(5, words_table_metrics)
     words_proximities = _find_neighbors_words(topn_words_table['WORD'], a_lists, 2)
+    _save_csv(words_table_metrics)
 
     return 1
