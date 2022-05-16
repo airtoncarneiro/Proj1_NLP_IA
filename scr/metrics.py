@@ -202,11 +202,12 @@ def _save_csv(df:pd.DataFrame)->None:
     df.to_csv(file_path, sep=';', index=False)
 
 
-def get_metrics_of_text(a_lists:list, topn:int):
+def get_metrics_of_text(a_lists:list, topn:int, qtd_word_ngb:int):
     '''
     Calcula as métricas TF, DF, TF-IDF, palavras vizinhas
     Parameters: a_list (list) Lista de palavras por documento
                 topn (int) A quantidade (top n) de palavras.
+                qtd_word_ngb (int) é a quantidade de palavras vizinhas.
     Return: duas listas (uma é as top n palavras e a outra
             é a que contém as n palavras próximas).
     '''
@@ -220,9 +221,9 @@ def get_metrics_of_text(a_lists:list, topn:int):
 
     # dicionário com as top n palavras e suas
     # palavras vizinhas
-    words_proximities = _find_neighbors_words(list(topn_words_table.keys()), a_lists, 2)
-    #words_proximities = _find_neighbors_words(topn_words_table['WORD'], a_lists, 2)
-
+    words_proximities = \
+      _find_neighbors_words(list(topn_words_table.keys()), \
+                            a_lists, qtd_word_ngb)
 
     _save_csv(words_table_metrics)
 

@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import networkx as nx
 
 class PrintWordCloud:
-    def __init__(self, tf_idf:dict, tokens_and_words:dict, qtd_pnts_central:int):
+    def __init__(self, tf_idf:dict, tokens_and_words:dict, \
+        qtd_pnts_central:int):
         """ Gera o gráfico de palavras
 
         params:
@@ -45,10 +46,11 @@ class PrintWordCloud:
             else 350 for node in G]
 
         # Construindo o gráfico:
-        nx.draw_kamada_kawai(G, with_labels=True, \
+        pos = nx.random_layout(G)
+        nx.draw(G, with_labels=True, \
                 width=3, node_color=node_color, \
                 edge_color="gray", style="solid",
-                node_size=node_size)
+                node_size=node_size, pos=pos)
         plt.show()
 
     def _get_topn_words(self, top:int, tf_idf:dict) -> list:
