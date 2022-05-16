@@ -9,7 +9,7 @@ def _find_files()->list:
     '''
     '''
 
-    rel_path = 'data\\raw'
+    rel_path = os.path.join('data','raw')
     ext = '*.pdf'
     base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     files = glob.glob(os.path.join(base_path, rel_path, ext))
@@ -42,12 +42,12 @@ def read_files(files:list)->deque:
 def get_preprocessed_files():
     '''
     '''
-
+    all_contents = []
     files = _find_files()
     if files:
         docs_contents = read_files(files)
         
-        all_contents = []
+       
         while docs_contents:
             doc_name, content = itemgetter('doc', 'content')(docs_contents.popleft())
             processed_content = Process_Text(content)
@@ -59,4 +59,4 @@ def get_preprocessed_files():
 
 
 if __name__ == '__main__':
-    get_preprocessed_files()
+    print(_find_files())
