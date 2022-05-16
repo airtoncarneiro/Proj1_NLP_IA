@@ -1,0 +1,11 @@
+networkx=2.7.1=pyhd3eb1b0_0
+nltk=3.7=pyhd3eb1b0_0
+numexpr=2.8.1=py39hb80d3ca_0
+numpy=1.21.5=py39h7a0a035_1
+numpy-base=1.21.5=py39hca35cd5_1
+pandas=1.4.1=py39hd77b12b_1
+pandocfilters=1.5.0=pyhd3eb1b0_0
+pdfplumber=0.6.2=pypi_0
+regex=2022.3.15=py39h2bbff1b_0
+scikit-learn=1.0.2=py39hf11a4ad_1
+stanza=1.2.3=pyhd8ed1ab_0
