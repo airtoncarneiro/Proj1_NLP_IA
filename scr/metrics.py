@@ -120,7 +120,7 @@ def _fill_table(a_lists:list)->pd.DataFrame:
         tfidfs = _get_tfidf(idf, tfs)
 
         row = {'WORD':word, 'TF':tfs, 'DF':df, 'IDF':idf, 'TFIDF':tfidfs}
-        tmp_df = tmp_df.append(row, ignore_index=True)
+        tmp_df = pd.concat([tmp_df, pd.DataFrame.from_dict(row)])
     
     return tmp_df
 
@@ -147,15 +147,10 @@ def _get_topn_words_tfidf(topn:int, df:pd.DataFrame)->dict:
 
     tmp_df = pd.DataFrame(columns=['WORD', 'TFIDF'])
     for _, row in df.iterrows():
-        max_value = None
-        for tfidf in row['TFIDF']:
-            if max_value:
-                max_value = tfidf if tfidf > max_value else max_value
-            else:
-                max_value = tfidf
+        max_value = row['TFIDF']
         
         new_row = {'WORD':row['WORD'], 'TFIDF':_normalize(max_value)}
-        tmp_df = tmp_df.append(new_row, ignore_index=True)
+        tmp_df = pd.concat([tmp_df, pd.DataFrame(new_row, index=list(range(len(new_row))))])
     
     tmp_df = tmp_df.sort_values(by=['TFIDF'], ascending=False)[:topn]
     tmp_df.reset_index(drop=True, inplace=True)
