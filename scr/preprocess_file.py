@@ -7,6 +7,9 @@ from process_text import Process_Text
 
 def _find_files()->list:
     '''
+    Procura os arquivos na pasta padrão do projeto.
+
+    Return: (list) Retorna a lista de arquivos encontrados.
     '''
 
     rel_path = 'data\\raw'
@@ -16,8 +19,11 @@ def _find_files()->list:
 
     return files
 
-def _read_file_content(file:str):
+def _read_file_content(file:str)->list:
     '''
+    Lê o conteúdo do arquivo.
+    Parameter: (str) Path completo do arquivo a ser lido.
+    Return: (list) Lista com o conteúdo de cada página do arquivo.
     '''
 
     contents_pages = []
@@ -29,6 +35,9 @@ def _read_file_content(file:str):
 
 def read_files(files:list)->deque:
     '''
+    Lê o conteúdo de cada arquivo da lista.
+    Parameter: (list) Uma lista de arquivos (path completo).
+    Return: (deque) Retorna um objeto deque com o conteúdo dos arquivos.
     '''
 
     docs_queue = deque()
@@ -39,8 +48,11 @@ def read_files(files:list)->deque:
     
     return docs_queue
 
-def get_preprocessed_files():
+def get_preprocessed_files()->list:
     '''
+    Lê todos os arquivos e faz o pré-processamento deles.
+
+    Return: (list) Lista de palavras de cada documento.
     '''
 
     files = _find_files()
@@ -54,9 +66,3 @@ def get_preprocessed_files():
             all_contents.append(processed_content.all_contents)
     
     return all_contents
-            
-
-
-
-if __name__ == '__main__':
-    get_preprocessed_files()

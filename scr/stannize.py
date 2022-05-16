@@ -1,7 +1,10 @@
 import stanza
 
-def get_words_stannizeds(inner_lists):
+def get_words_stannizeds(inner_lists:list)->list:
     '''
+    Faz o processo de tokenização e lemmatização do texto.
+    Parameter: (list) Uma lista de palavras de cada documento.
+    Return: (list) Retorna a lista de palavras lematizadas por documento.
     '''
     nlp = stanza.Pipeline(lang='pt', processors='tokenize,lemma')
     # stanzed_list = []
