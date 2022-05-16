@@ -11,7 +11,7 @@ my_list = stannize.get_words_stannizeds(my_list)
 # informa a quantidade de pontos centrais
 qtd_pontos_centrais = int =  5
 # informa a quantidade de palavras vizinhas
-qtd_palavras_vizinhas = 5
+qtd_palavras_vizinhas = 3
 
 # Obtém a tabela de palavras e as métricas
 topn_words_table, words_proximities = \
