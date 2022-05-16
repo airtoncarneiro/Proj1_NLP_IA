@@ -33,9 +33,10 @@ def _get_tf(word, words_tot_per_doc):
     tf = 0
     for words_in_doc in words_tot_per_doc:
         calc = words_in_doc.get(word, 0) / len(words_in_doc)
-        tfs_list.append(calc)
-        
-    return tfs_list
+        if calc > 0.0: tfs_list.append(calc)
+    
+    average = sum(tfs_list) /  len(tfs_list)
+    return [average]
 
 def _get_df(word, words_tot_per_doc):
     '''

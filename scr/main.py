@@ -5,12 +5,6 @@ from print_word_cloud import PrintWordCloud
 
 my_list = preprocess_file.get_preprocessed_files()
 
-# my_list = [
-#     ['comeu','gato','queijo'],
-#     ['gato', 'gato'],
-#     ['gato']
-# ]
-
 doc = stannize.get_words_stannizeds(my_list)
 
 # informa a quantidade de pontos centrais
