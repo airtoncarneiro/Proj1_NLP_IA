@@ -8,3 +8,4 @@ lemma = Lemmatizer(preprocess_files)
 text_lemmatized = lemma.get_all_texts_lemmatized()
 
 
+
