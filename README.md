@@ -1,40 +1,65 @@
-# quad2_atlantico
-Códigos de trabalho do squad 2 Atlântico
-Item 1 e 2 - Stefane e Pedrosa
-
-item 3 e 4 - Ícaro e Leandro
-
-item 5 e 6 - Airton 
 
 
 
----
 
-# Atlântico Bootcamp - Computação Cognitiva
-## Projeto I
+![elem3](https://user-images.githubusercontent.com/104634692/169033139-31b70a2d-d302-4150-b6ca-723dd636aa3c.png)
 
-## NLP
-### Visão Geral
-Uma empresa contratante deseja estabelecer termos de maior relevância em um documento específico. Neste caso, considere o histórico de exames, consultas e procedimentos realizados por um paciente. Um sistema deve ser desenvolvido para que o médico possa ter uma visão geral do histórico do paciente sem a necessidade de analisar documento por documento. Com base nesta importância, vamos desenvolver uma etapa deste sistema. Tokenizar um texto, realizar remoção de stopwords, aplicar o processo de lematização e fazer uma análise quantitativa e visual subjetiva deste.
 
-### Objetivos
-1. Carregar o conjunto de documentos em PDF e armazená-los em alguma estrutura de dados.
-2. Realizar o pré-processamento destes ( tokenização e remoção de stop words, deixar todos os caracteres minúsculos...).
-3. Lematização com a Lib stanza
-4. Implementar para determinar as seguintes informações dos resultados obtidos em 3:
-4.1 Term Frequency (TF):
-&nbsp;&nbsp;&nbsp;&nbsp;𝑇𝐹 = 𝑞𝑡𝑑 𝑑𝑒 𝑜𝑐𝑜𝑟𝑟ê𝑛𝑐𝑖𝑎 𝑑𝑜 𝑡𝑒𝑟𝑚𝑜 𝑒𝑚 𝑢𝑚 𝑡𝑒𝑥𝑡𝑜 / 𝑞𝑢𝑎𝑛𝑡𝑖𝑑𝑎𝑑𝑒 𝑡𝑜𝑡𝑎𝑙 𝑑𝑒 𝑝𝑎𝑙𝑎𝑣𝑟𝑎𝑠 𝑑𝑜 𝑡𝑒𝑥𝑡𝑜
-4.2 Document Frequency (DF)
-&nbsp;&nbsp;&nbsp;&nbsp;𝐷𝐹 = 𝑞𝑡𝑑 𝑑𝑒 𝑜𝑐𝑜𝑟𝑟ê𝑛𝑐𝑖𝑎 𝑑𝑜 𝑡𝑒𝑟𝑚𝑜 𝑒𝑚 𝑢𝑚 𝑐𝑜𝑛𝑗𝑢𝑛𝑡𝑜 𝑑𝑒 𝑑𝑜𝑐𝑢𝑚𝑒𝑛𝑡𝑜𝑠
-4.3 Inverse Document Frequency (IDF)
-&nbsp;&nbsp;&nbsp;&nbsp;𝐼𝐷𝐹 = 𝑙𝑜𝑔(𝑞𝑡𝑑 𝑑𝑒 𝑑𝑜𝑐𝑢𝑚𝑒𝑛𝑡𝑜𝑠 / (𝐷𝐹 + 1))
-4.4 TF-IDF
-&nbsp;&nbsp;&nbsp;&nbsp;𝑇𝐹 − 𝐼𝐷𝐹 = 𝐼𝐷𝐹 * 𝑇𝐹
-4.5 Lista de strings com proximidade até 2 dos 5 termos de maior TF-IDF. Essas strings devem ser acompanhadas de seu valor de TF. Exemplo: Suponha que a lista dos 5 termos demaior TF-IDF é [ casa, carro, comida, cachorro, gato]. Carro em um uma frase pode ter pneu e banco com as palavras mais próximas. Em outra parte do texto, carro pode ter volante e cinto, como as palavras mais próximas. Neste caso, para o termo carro, as strings pneu,banco,volante,cinto] são as que devem ser armazenadas para análise.
-5. Gerar um arquivo csv que possui todas as palavras de todos os documentos na primeira coluna, em que cada linha é um token. Para cada token, informe nas colunas vizinhas as informações determinadas no objetivo 4.1 até 4.4.
-6. Gerar nuvem de palavras para análise visual tal como exemplo abaixo. Cada ponto central será um dos 5 termos de maior TF-IDF. As conexões são as palavras próximas obtidas em 4.5. O tamanho do círculo da palavra é baseado no TF dela. O maior círculo que conecta o termo central será normalizado para palavras de maior TF do conjunto.
 
-![Núvem de palavras](/img/wordcloud.png)
+# Primeiro Projeto do Bootcamp do Instituto Atlântico 
+
+
+## Desenvolvidos pelo Squad2:
+Airton, Ícaro e Leandro
+
+
+
+## Introdução
+
+Projeto criado com o objetivo de apresentar, com base em NLP, uma visão geral do histórico de um paciente sem a necessidade de analisar documento por documento referentes a histórico de exames, consultas e procedimentos.
+
+
+
+### Sumário da solução
+
+1. [Dataset](#section01)
+   
+2. [Pré-processamento dos dados](#section02)
+  
+3. [Lematização](#section03)
+
+4. Determinar com base nos resultados da lematização:
+
+    4.1 Term Frequency<br>
+    4.2 Document Frequency<br>
+    4.3 Inverse Document Frequency<br>
+    4.4 TF-IDF<br>
+    4.5 𝑇𝐹 − 𝐼𝐷𝐹 = 𝐼𝐷𝐹 * 𝑇𝐹<br>
+ 5. Gerar um arquivo csv que possui todas as palavras de todos os documentos na primeira coluna
+ 6. [Resultado em Nuvem de palavras](#section04)
+ 7. [Tópicos de Auxílio](#section05)
+   
+
+
+<a id='section01'></a>
+### Dataset
+Como base dados foram utilizados 3 documentos com histórico de consultas no formato pdf de um paciente.
+
+<a id='section02'></a>
+### Pré-processamento dos dados
+Para os dados foram aplicados processamento como tokenização e remoção de stop words e transformar os caracteres todos em minúsculos.
+
+<a id='section03'></a>
+### Lematização
+Tendo os dados já processados realizou-se a lematização com a biblioteca Stanza.
+
+<a id='section04'></a>
+### Resultado em nuvem de palavras
+
+![wordcloud](https://user-images.githubusercontent.com/104634692/169050734-2e48c05a-7cd9-40ba-b0af-772f6009d4e3.png)
+
+<a id='section05'></a>
+### Tópicos de Auxílio
 
 
 **Tópicos de Auxílio**
