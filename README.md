@@ -13,7 +13,12 @@
 Airton, Ícaro e Leandro
 
 
+## O Projeto
 
+Para executar o projeto clone o repositório e use o pipinstall com o arquivo requirements.
+Para executá-lo, abrir o main.py e rodar.
+O projeto está todo customizável e adaptável. A quantidade de nós, quantas palavras vizinhas, leitura de quaisquer arquivos com extensão .PDF.
+Também foi usado classe (obj), módulos Python para chamadas. Todo arquivo Python possui docstring explicando os parâmetros de entrada e saída dos métodos e funções. Também estão explicitamente informados os tipos (Data Type) de cada variável nas funções/classes.<br>
 ## Introdução
 
 Projeto criado com o objetivo de apresentar, com base em NLP, uma visão geral do histórico de um paciente sem a necessidade de analisar documento por documento referentes a histórico de exames, consultas e procedimentos.
@@ -56,7 +61,7 @@ Tendo os dados já processados realizou-se a lematização com a biblioteca Stan
 <a id='section04'></a>
 ### Resultado em nuvem de palavras
 
-![wordcloud](https://user-images.githubusercontent.com/104634692/169050734-2e48c05a-7cd9-40ba-b0af-772f6009d4e3.png)
+![wordcloud](./img/wordcloud2.png)
 
 <a id='section05'></a>
 ### Tópicos de Auxílio
