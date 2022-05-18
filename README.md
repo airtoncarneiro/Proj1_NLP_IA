@@ -4,9 +4,8 @@ Item 1 e 2 - Stefane e Pedrosa
 
 item 3 e 4 - Ícaro e Leandro
 
-item 5 e 6 - Airton e Alberlando
+item 5 e 6 - Airton 
 
-Priscila, Elissandra
 
 
 ---
