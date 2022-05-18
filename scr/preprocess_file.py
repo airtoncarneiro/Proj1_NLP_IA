@@ -65,14 +65,4 @@ def get_preprocessed_files()->list:
             processed_content = Process_Text(content)
             all_contents.append(processed_content.all_contents)
     
-<<<<<<< HEAD:scr/vc/preprocess_file.py
     return all_contents
-            
-
-
-
-if __name__ == '__main__':
-    print(_find_files())
-=======
-    return all_contents
->>>>>>> dev_a:scr/preprocess_file.py
