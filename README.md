@@ -18,6 +18,7 @@ Airton, Ícaro e Leandro
 Para executar o projeto clone o repositório e use o pipinstall com o arquivo requirements.
 Para executá-lo, abrir o main.py e rodar.
 O projeto está todo customizável e adaptável. A quantidade de nós, quantas palavras vizinhas, leitura de quaisquer arquivos com extensão .PDF.
+Também foi usado classe (obj), módulos Python para chamadas. Todo arquivo Python possui docstring explicando os parâmetros de entrada e saída dos métodos e funções. Também estão explicitamente informados os tipos (Data Type) de cada variável nas funções/classes.<br>
 ## Introdução
 
 Projeto criado com o objetivo de apresentar, com base em NLP, uma visão geral do histórico de um paciente sem a necessidade de analisar documento por documento referentes a histórico de exames, consultas e procedimentos.
