@@ -9,7 +9,7 @@
 # Primeiro Projeto do Bootcamp do Instituto Atlântico 
 
 
-## Desenvolvidos pelo Squad2:
+### Desenvolvido pelos alunos do Squad2:
 Airton, Ícaro e Leandro
 
 
