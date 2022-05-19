@@ -39,7 +39,7 @@ Projeto criado com o objetivo de apresentar, com base em NLP, uma visão geral d
     4.2 Document Frequency<br>
     4.3 Inverse Document Frequency<br>
     4.4 TF-IDF<br>
-    4.5 𝑇𝐹 − 𝐼𝐷𝐹 = 𝐼𝐷𝐹 * 𝑇𝐹<br>
+    
  5. Gerar um arquivo csv que possui todas as palavras de todos os documentos na primeira coluna
  6. [Resultado em Nuvem de palavras](#section04)
  7. [Tópicos de Auxílio](#section05)
@@ -67,7 +67,7 @@ Tendo os dados já processados realizou-se a lematização com a biblioteca Stan
 ### Tópicos de Auxílio
 
 
-**Tópicos de Auxílio**
+**TF-IDF**
 https://towardsdatascience.com/tf-idf-for-document-ranking-from-scratch-in-python-on-real-worlddataset-796d339a4089
 
 **Informações sobre as métricas utilizadas**
